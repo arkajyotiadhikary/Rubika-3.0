@@ -10,6 +10,10 @@ body{
     color: white;
 }
 
+.scramble{
+    height: 100px;
+}
+
 #scramble{
     font-size: 1.25rem;
     text-shadow: 1px 4px 3px #000000;
