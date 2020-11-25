@@ -132,7 +132,19 @@ function stopWatch(){
 
 }
 
-function startStop(){
+}
+
+function reset(){
+
+    window.clearInterval(interval);
+    ms = 0;
+    seconds = 0;
+    minutes = 0;
+    document.getElementById("time").innerHTML = "00:00:00";
+
+}
+
+ring.addEventListener("click", function (){
 
     if(stopped){
         reset();
@@ -149,19 +161,24 @@ function startStop(){
 
     }
 
-}
+});
 
-function reset(){
+document.querySelector("body").addEventListener("keyup", function (e){
 
-    window.clearInterval(interval);
-    ms = 0;
-    seconds = 0;
-    minutes = 0;
-    document.getElementById("time").innerHTML = "00:00:00";
+    if(stopped && e.code == 'Space'){
+        reset();
+        //Start the stopwatch (by calling the setInterval() function)
+        interval = window.setInterval(stopWatch, 10);
+        stopped = !stopped;
 
-}
+    }
+    else if(!stopped){
 
-ring.addEventListener("click", startStop);
+        window.clearInterval(interval);
+        stopped = !stopped;
+        randomScramble();
 
-document.querySelector("body").addEventListener("keyup", startStop);
+    }
+
+});
         
