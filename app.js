@@ -132,8 +132,6 @@ function stopWatch(){
 
 }
 
-}
-
 function reset(){
 
     window.clearInterval(interval);
